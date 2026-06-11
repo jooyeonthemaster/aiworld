@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  /* ============ COLOR TOKENS ============ */
+  --color-ink: #07060a; /* 베이스 블랙(웜 언더톤) */
+  --color-coal: #100d13; /* 살짝 떠 있는 패널 블랙 */
+  --color-bone: #f2ede3; /* 라이트 씬의 종이색 */
+  --color-bone-dim: #cfc8b8; /* 본 톤 보조 텍스트 */
+  --color-gold: #e8b54b; /* 거인 / 시그니처 골드 */
+  --color-gold-bright: #ffd37a; /* 골드 하이라이트 */
+  --color-ember: #ff4b2e; /* 전쟁·위험·경고 */
+  --color-haze: #8b8494; /* 죽은 다수 / 음소거 텍스트 */
+
+  /* ============ FONT TOKENS ============ */
+  --font-display: var(--font-noto-serif), "Noto Serif KR", serif;
+  --font-body: "Pretendard Variable", Pretendard, -apple-system, "Noto Sans KR", sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", monospace;
+}
+
+html {
+  background: #07060a;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* 한국어 단어 중간 줄바꿈 방지 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background: #e8b54b;
+  color: #07060a;
+}
+
+/* Lenis smooth-scroll helpers */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* ============ CUSTOM UTILITIES ============ */
+@utility text-stroke-bone {
+  -webkit-text-stroke: 1.5px rgba(242, 237, 227, 0.65);
+  color: transparent;
+}
+@utility text-stroke-gold {
+  -webkit-text-stroke: 1.5px rgba(232, 181, 75, 0.8);
+  color: transparent;
+}
+@utility text-stroke-ink {
+  -webkit-text-stroke: 1.5px rgba(7, 6, 10, 0.7);
+  color: transparent;
+}
+@utility text-balance-k {
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+/* ============ KEYFRAMES ============ */
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes scroll-cue {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.45; }
+  43% { opacity: 1; }
+  61% { opacity: 1; }
+  62% { opacity: 0.6; }
+  64% { opacity: 1; }
+}
+@keyframes scanline-y {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100vh); }
+}
+
+.animate-blink-caret { animation: blink-caret 1s step-end infinite; }
+.animate-pulse-soft { animation: pulse-soft 3.2s ease-in-out infinite; }
+.animate-scroll-cue { animation: scroll-cue 2.2s ease-in-out infinite; }
+.animate-flicker { animation: flicker 4.5s linear infinite; }
