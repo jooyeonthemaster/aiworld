@@ -11,6 +11,7 @@ import {
 import Starfield from "@/components/ui/Starfield";
 import TextSplit from "@/components/ui/TextSplit";
 import Reveal from "@/components/ui/Reveal";
+import GiantRobot from "@/components/ui/GiantRobot";
 
 /**
  * S01 — 오프닝 히어로
@@ -39,6 +40,7 @@ export default function Scene01() {
   const glowY = useTransform(sy, (v: number) => v * 14);
   const titleX = useTransform(sx, (v: number) => v * -12);
   const titleY = useTransform(sy, (v: number) => v * -8);
+  const robotX = useTransform(sx, (v: number) => v * 9);
 
   /* ---------- 스크롤 이탈: 콘텐츠가 위로 흘러가며 어둠 속으로 ---------- */
   const { scrollYProgress } = useScroll({
@@ -48,6 +50,7 @@ export default function Scene01() {
   const exitY = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const exitOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
   const shoulderRise = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const robotRise = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
   return (
     <section
@@ -97,6 +100,24 @@ export default function Scene01() {
           />
         </motion.div>
       </motion.div>
+
+      {/* ============ LAYER 1.5 — 3D 거인 로봇 (Spline) ============ */}
+      <motion.div
+        aria-hidden
+        style={{ x: robotX, y: robotRise, opacity: exitOpacity }}
+        className="absolute bottom-[2vh] left-1/2 z-[3] h-[72vh] w-[min(86vh,94vw)] -translate-x-1/2 mix-blend-multiply"
+      >
+        <GiantRobot className="h-full w-full" />
+      </motion.div>
+      {/* 로봇 발치의 접지 글로우 — 거인이 빛 위에 서 있도록 */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-1/2 z-[4] h-[16vh] w-[70vw] -translate-x-1/2"
+        style={{
+          background:
+            "radial-gradient(55% 90% at 50% 100%, rgba(255,211,122,0.22), transparent 75%)",
+        }}
+      />
 
       {/* ============ LAYER 2 — 비네트 (가장자리 침잠) ============ */}
       <div

@@ -26,6 +26,7 @@ import Scene23 from "@/components/scenes/S23_FableDrop";
 import Scene24 from "@/components/scenes/S24_PriceOfPower";
 import Scene25 from "@/components/scenes/S25_NoEscape";
 import Scene26 from "@/components/scenes/S26_Turn";
+import Scene26B from "@/components/scenes/S26B_AnyPath";
 import Scene27 from "@/components/scenes/S27_Steps";
 import Scene28 from "@/components/scenes/S28_Summit";
 import Scene29 from "@/components/scenes/S29_Echo";
@@ -70,6 +71,7 @@ export default function Page() {
 
       {/* ACT 5 — 올라타는 법 */}
       <Scene26 />
+      <Scene26B />
       <Scene27 />
 
       {/* FINALE — 거인의 어깨 위에서 */}
