@@ -80,7 +80,7 @@ export const LECTURES: Lecture[] = [
     sizeLabel: "71.0 MB",
     thumbnail: null,
     accent: "#E8B54B",
-    status: "scheduled",
+    status: "published",
     pinned: true,
   },
   {
@@ -102,7 +102,7 @@ export const LECTURES: Lecture[] = [
     sizeLabel: "62.4 MB",
     thumbnail: null,
     accent: "#E8B54B",
-    status: "scheduled",
+    status: "published",
     pinned: true,
   },
   {
