@@ -8,3 +8,21 @@ next-env.d.ts
 .vercel/
 
 .vercel
+
+# build / verification artifacts
+tsconfig.tsbuildinfo
+output/
+
+# ad-hoc reference screenshots (root)
+/card-closeup.png
+/win-closeup.png
+/desk-grid.png
+/desk-list.png
+
+# 무관한 오디오/전사/위치스캔 산출물 (다른 작업 잔존물 — 강의안 레포 대상 아님)
+*.wav
+audio_chunks_*/
+transcript_*.md
+location_*.md
+location_*.wav
+chunk_location_*.md
